@@ -1,4 +1,4 @@
-package com.suhee.activemq;
+package com.suhee.activemq.first;
 
 import java.util.Locale;
 
@@ -7,7 +7,6 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +34,7 @@ public class HomeController {
 		
 		logger.info("================================ start");
 		
-		send("receive test");
+		send("java config test");
 		
 //		Queue queue = new ActiveMQQueue("myMessageQueue");
 //		send(queue, "first text");
@@ -48,24 +47,6 @@ public class HomeController {
 	}
 	
 	public void send(final String text) {
-		/*jmsTemplate.send(new MessageCreator() {
-			@Override
-			public ObjectMessage createMessage(Session session) throws JMSException {
-				ObjectMessage message = session.createObjectMessage();
-				message.setObject("Test 2");
-				return message;
-			}
-		});*/
-		
-		/*
-		jmsTemplate.send(new MessageCreator() {
-			@Override
-			public Message createMessage(Session session) throws JMSException {
-				Message message = session.createTextMessage(text);
-				return message;
-			}
-		});*/
-		
 		jmsTemplate.send(new MessageCreator() {
 			@Override
 			public ObjectMessage createMessage(Session session) throws JMSException {
@@ -74,19 +55,12 @@ public class HomeController {
 				return message;
 			}
 		});
-		
-		/*jmsTemplate.send(new MessageCreator() {
-			@Override
-			public Message createMessage(Session session) throws JMSException {
-				TextMessage textMessage = session.createTextMessage("send test");
-				return textMessage;
-			}
-		});*/
+
 		logger.info("MESSAGE SENT TO myMessageQueue");
 	}
 	
 	public void receive() throws JMSException {
-		Message receivedMessage = jmsTemplate.receive("myMessageQueue");
+		Message receivedMessage = jmsTemplate.receive("javaconfig.activemq");
 		
 		logger.info(":::: " + receivedMessage);
 		logger.info(":::: " + receivedMessage.getJMSCorrelationID());
@@ -100,9 +74,6 @@ public class HomeController {
 		logger.info(":::: " + receivedMessage.getJMSPriority());
 		logger.info(":::: " + receivedMessage.getJMSRedelivered());
 		logger.info(":::: " + receivedMessage.getPropertyNames());
-		
-		TextMessage message = (TextMessage)receivedMessage;
-		logger.info("Message Received :" + message.getText());
 		
 		ObjectMessage msg = (ObjectMessage) receivedMessage;
 		logger.info("Message Received :" + msg.getObject().toString());

@@ -127,9 +127,8 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -179,6 +178,14 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

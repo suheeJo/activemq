@@ -13,9 +13,11 @@ import org.springframework.jms.core.MessageCreator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.suhee.activemq.config.RootConfig;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
+@ContextConfiguration(classes=RootConfig.class)
 public class ActiveMQTest {
 	
 	@Autowired
@@ -25,7 +27,7 @@ public class ActiveMQTest {
 	public void activeMQTest() {
 		System.out.println("============================ start");
 		// send
-		send();
+//		send();
 	}
 	
 	public void send() {
