@@ -1,0 +1,17 @@
+# Java class files
+*.class
+
+# maven output folder
+/target/
+
+# Eclipse project files
+.classpath
+.project
+.metadata
+.settings
+
+# Windows files
+Thumbs.db
+
+# spring project
+.springBeans
