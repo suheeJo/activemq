@@ -13,11 +13,11 @@ import org.springframework.jms.core.MessageCreator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.suhee.activemq.config.RootConfig;
+import com.suhee.activemq.config.MvcConfig;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=RootConfig.class)
+@ContextConfiguration(classes=MvcConfig.class)
 public class ActiveMQTest {
 	
 	@Autowired
