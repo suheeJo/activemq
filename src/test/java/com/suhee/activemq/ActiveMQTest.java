@@ -12,12 +12,14 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.suhee.activemq.config.MvcConfig;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=MvcConfig.class)
+@ContextConfiguration(classes={MvcConfig.class})
+@WebAppConfiguration
 public class ActiveMQTest {
 	
 	@Autowired
